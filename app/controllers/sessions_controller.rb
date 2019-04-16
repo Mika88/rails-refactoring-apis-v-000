@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     session[:token] = github.authenticate!(ENV['GITHUB_CLIENT'], ENV['GITHUB_SECRET'], params[:code])
 
     @user = github.get_username
+    binding.pry
     redirect_to root_path
   end
 end
